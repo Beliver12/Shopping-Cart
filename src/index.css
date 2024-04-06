@@ -38,27 +38,28 @@
   grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
   grid-template-rows: 430px 500px;
   column-gap: 10px;
+  row-gap: 10px;
 }
 
 #hero-image-1{
   background-image: url(./images/pexels-terje-sollie-298864.jpg);
   
   max-width: 100vw;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
 }
 #hero-image-2{
   background-image: url(./images/woman-holds-fashion-shopping-bag-beauty.jpg);
   
   max-width: 100vw;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
 }
 #hero-image-3{
   background-image: url(./images/pexels-pixabay-325876.jpg);
  
   max-width: 100vw;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
 }
 #hero-image-4{
