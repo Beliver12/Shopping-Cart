@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import { Cart, AddButton } from './shopPage-1';
 export default function ShopPage3() {
     const [image, setImage] = useState([])
-    const [itemsInCart, setItemsInCart] = useState(0)
     const [item, setItem] = useState([])
    // ['electronics', 'jewelery', "men's clothing", "women's clothing"]
           useEffect(() => {
@@ -19,10 +18,7 @@ export default function ShopPage3() {
               })
               },[]);
 
-              function addToCart(e) {
-                setItemsInCart(itemsInCart+ 1)
-                setItem(e.target.id)
-              }
+            
     return (
         <>
         <div id="header">
