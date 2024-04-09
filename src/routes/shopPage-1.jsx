@@ -7,6 +7,10 @@ function Cart({value}) {
   return <p value={value}>{value}</p>
 }
 
+function AddButton({handleClick}) {
+  return <button onClick={handleClick}>Add</button>
+}
+
 export default function ShopPage() {
     const [image, setImage] = useState([])
     const [itemsInCart, setItemsInCart] = useState(0)
@@ -24,10 +28,7 @@ export default function ShopPage() {
               })
               },[]);
 
-              function addToCart(e) {
-                setItemsInCart(itemsInCart+ 1)
-                setItem(e.target.id)
-              }
+            
     return (
         <>
         <div id="header">
@@ -38,7 +39,7 @@ export default function ShopPage() {
              </div>
              <div id='cart-box'>
                 <div id='cart'></div> 
-                <Cart value={itemsInCart}>{itemsInCart}</Cart>
+                <Cart value={itemsInCart} >{itemsInCart}</Cart>
              </div>
         </div>
         <div id="shop-content">
@@ -49,7 +50,7 @@ export default function ShopPage() {
                     <div>
                         <label htmlFor="items">Items:</label>
                         <input type="number" id="points" name="items" placeholder='1' max={10}></input>
-                        <button key={img.id} id={img.id} onClick={addToCart}>Add</button>
+                        <AddButton key={img.id} id={img.id} handleClick={() => setItemsInCart(itemsInCart + 1)}>Add</AddButton>
                     </div>
                 </div>
                 )}
@@ -70,3 +71,5 @@ export default function ShopPage() {
         </>
     )
 }
+
+export {Cart, AddButton}

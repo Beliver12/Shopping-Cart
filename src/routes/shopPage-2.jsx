@@ -1,10 +1,9 @@
 import '../index.css'
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react';
-
+import { Cart, AddButton } from './shopPage-1';
 export default function ShopPage2() {
     const [image, setImage] = useState([])
-    const [itemsInCart, setItemsInCart] = useState(0)
     const [item, setItem] = useState([])
    // ['electronics', 'jewelery', "men's clothing", "women's clothing"]
           useEffect(() => {
@@ -19,10 +18,7 @@ export default function ShopPage2() {
               })
               },[]);
 
-              function addToCart(e) {
-                setItemsInCart(itemsInCart+ 1)
-                setItem(e.target.id)
-              }
+           
     return (
         <>
         <div id="header">
@@ -33,7 +29,7 @@ export default function ShopPage2() {
              </div>
              <div id='cart-box'>
                 <div id='cart'></div> 
-                <p>&nbsp; :{itemsInCart}</p>
+                <Cart />
              </div>
         </div>
         <div id="shop-content">
@@ -44,7 +40,7 @@ export default function ShopPage2() {
                     <div>
                         <label htmlFor="items">Items:</label>
                         <input type="number" id="points" name="items" placeholder='1' max={10}></input>
-                        <button key={img.id} id={img.id} onClick={addToCart}>Add</button>
+                        <AddButton key={img.id} id={img.id} >Add</AddButton>
                     </div>
                 </div>
                 )}
