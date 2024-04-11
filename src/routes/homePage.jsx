@@ -1,4 +1,6 @@
-import { useState, useEffect } from "react"
+
+import { Outlet } from "react-router-dom";
+
 import '../index.css'
 import { Link } from 'react-router-dom'
 
@@ -11,29 +13,15 @@ export default function HomePage() {
             <div id="home-icon"></div>
         <h1>Home Page</h1>
              </div>
-             <div id='links'>
-                <a href={`/`}>Home-Page</a>
-             </div>
-             <div id='cart-box'>
-                <div id='cart'></div> 
-                <p></p>
-             </div>
+          
+             
         </div>
+        <Link to={`/shop-page-1`} id="hero-image-1">
+              <h1>Open Shop</h1>
+            </Link>
         <div id="content">
-            <Link to={`/shop-page-1`} id="hero-image-1">
-              <h1>Jewelery</h1>
-            </Link>
-            <Link to={`/shop-page-2`} id="hero-image-2">
-            <h1>Men&apos;s clothing</h1>
-            </Link>
-            <Link to={`/shop-page-3`} id="hero-image-3">
-            <h1>Women&apos;s clothing</h1>
-            </Link>
-            <Link to={`/shop-page-4`} id="hero-image-4">
-            <h1>Electronics</h1>
-            </Link>
+        <Outlet />
         </div>
-        
         <div id="footer">
         <h1>Contact-Us:</h1>
         <div id="email">E-mail: &nbsp; Something@gmail.com<p></p></div>
