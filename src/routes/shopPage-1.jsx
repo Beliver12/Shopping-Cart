@@ -7,11 +7,10 @@ import { Outlet } from "react-router-dom";
 export default function ShopPage() {
     const [image, setImage] = useState([])
     const [itemsInCart, setItemsInCart] = useState(0)
-    const [itemId, setItemId] = useState([])
-    const [itemPrice, setItemPrice] = useState([])
-    const numOfItem = []
-    const ids = [];
-    const prices = [];
+    const [cartInfo, setCartInfo] = useState([])
+    const [numOfItem, seNumOfItem] = useState([])
+    const srcs = [];
+    let prices = [];
           useEffect(() => {
                 fetch('https://fakestoreapi.com/products')
               .then(function (response) {
@@ -26,40 +25,52 @@ export default function ShopPage() {
 
 
               function addToCart(e) {
-
-               let value = Number(numOfItem[numOfItem.length -1])
+                let currentPrice = 0;
+               let value = 1;
+               prices.push(Number(e.target.value))
+            
+                srcs.push(e.target.id)
                 if(numOfItem.length > 0) {
-                  for(let i = 0; i <  value; i++) {
-                    prices.push(e.target.value)
-                    ids.push(e.target.id)
+                  value = Number(numOfItem[numOfItem.length -1]);
+                  for(let i = 1; i <  value; i++) {
+                    prices[0] += Number(e.target.value)
                   }
                 }
-                prices.push(e.target.value)
-                ids.push(e.target.id)
-                if(itemId.length > 0) {
-                  for(let i = 0; i < itemId.length; i++) {
-                    if(itemId[i].id.includes(ids[0])) {
-                      setItemsInCart(itemsInCart)
-
-                      setItemId([...itemId, {id: ids[0]}])
-                      
-                    } else if(!itemId[i].id.includes(ids[0])) {
-                      
+                if(cartInfo.length > 0) {
+                  for(let i = 0; i < cartInfo.length; i++) {
+                    if(!cartInfo[i].id.includes(srcs[0])) {
+                      currentPrice = cartInfo[i].totalPrice + prices[0];
+                      const rounded = currentPrice.toFixed(2);
+                      currentPrice = Number(rounded);
                       setItemsInCart(itemsInCart + 1)
+                      setCartInfo([...cartInfo, {id: srcs, val: value, totalPrice: currentPrice}])
+                    } else  if(cartInfo[i].id.includes(srcs[0])) {
+                      currentPrice = cartInfo[cartInfo.length -1].totalPrice + prices[0];
+                      const rounded = currentPrice.toFixed(2);
+                      currentPrice = Number(rounded);
+                      const newItem = cartInfo.map((c, index) => {
+                         if(index === i) {
+                          c.val += value
+                         Math.round(c.totalPrice = currentPrice)
+                          return c
+                         } else {
+                          Math.round(c.totalPrice = currentPrice)
+                          return c;
+                         }
+                         
+                      })
+                      setCartInfo(newItem)
+                      setItemsInCart(itemsInCart)
+                      seNumOfItem(1)
+                      return false;
                     }
                   }
                 
-                } if(itemId.length === 0) {
-                 prices.map(price =>
-                  setItemPrice([...itemPrice, {price: price}])
-                  )
-                  
-                  
+                } if(cartInfo.length === 0) {
+                  currentPrice = prices[0];
                   setItemsInCart(itemsInCart+ 1)
+                  setCartInfo([...cartInfo, {id: srcs, val: value, totalPrice: currentPrice}])
                 }
-       
-               // setItemPrice([...itemPrice, {price: prices[0]}])
-                setItemId([...itemId, {id: ids[0]}])
                 
               }
             
@@ -73,8 +84,8 @@ export default function ShopPage() {
                     <img key={img.id} src={img.image}/>
                     <div >
                         <label htmlFor="items">Items:</label>
-                        <input type="number" id="points" name="items" onChange={(e) => numOfItem.push(e.target.value)} placeholder='1' max={10}></input>
-                        <button key={img.id} id={img.id} value={img.price} onClick={addToCart}>Add</button>
+                        <input type="number" id="points" value={numOfItem} name="items" onChange={(e) => seNumOfItem(e.target.value)} placeholder='1' max={10}></input>
+                        <button key={img.id} id={img.image} value={img.price} onClick={addToCart}>Add</button>
                     </div>
                 </div>
                 )}
@@ -85,11 +96,16 @@ export default function ShopPage() {
              </div>
              <div id='cart-box'>
                 <div id='cart'></div> 
-                <Link to={`/shop-page-1/cart`}>
-                  <p >{itemsInCart}</p>
-                  <Outlet context={[itemId, setItemId]}/>
-                </Link>
+                
+                
+                <Link to={`/shop-page-1/cart`}><p>{itemsInCart}</p></Link>
              </div>
+             
+                 <div id='cart-items'>
+                   
+                   <Outlet context={[cartInfo, setCartInfo]}/>
+                 </div>
+                
         </div>
         </>
     )

@@ -5,32 +5,57 @@
 }
 
 #sidebar{
-  display: flex;
-align-items: center;
-  flex-direction: column;
-  justify-content: flex-end;
-  width: 200px;
-  height: 100px;
- justify-self: flex-end;
+  display: grid;
+width: 33vw;
+height: 1700px;
+justify-self: flex-end;
+grid-template-rows:  100px 100px 1fr;
+grid-template-columns: 100%;
+background-color: rgb(52, 51, 51, 0.7);
+border-radius: 10px;
+}
+
+#sidebar > div {
+  grid-column: 1/2;
+  grid-row: 3/4;
 }
 
 
-
-#links {
+#sidebar > #links {
   width: 200px;
   display: flex;
   justify-content: space-between;
+  grid-column: 1/2;
+  grid-row: 1/2;
+  justify-self: flex-end;
+}
+
+#sidebar > #cart-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
+  grid-template-rows: repeat(auto-fit , minmax(5%, 250px));
+  column-gap: 20px;
+}
+
+#sidebar > #cart-items > div > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
 #cart {
   background-image: url(./icons/icons8-add-to-basket-32.png);
   width: 30px;
   height: 30px;
+  
 }
 
-#cart-box {
+#sidebar > #cart-box {
   display: flex;
   align-items: center;
+  grid-row: 2/3;
+  justify-self: flex-end;
+  align-self: flex-start;
 }
 
 #home-icon{
@@ -47,8 +72,8 @@ align-items: center;
 
 #content{
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
-  grid-template-rows: 430px 500px 300px;
+  grid-template-columns: 60vw 35vw;
+  grid-template-rows: 430px 1000px 300px;
   column-gap: 10px;
   row-gap: 10px;
   background-image: url(./images/pexels-terje-sollie-298864.jpg);
@@ -183,11 +208,12 @@ input{
 #shop-content{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(18%, 1fr));
-  grid-template-rows: 300px 300px 300px ;
+  grid-template-rows: 400px 400px 400px 400px;
   row-gap: 25px;
   column-gap: 10px;
   justify-self: center;
-  width: 100vw;
+  width: 60vw;
+  height: 1700px;
 }
 p{
   color: white;
