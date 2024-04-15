@@ -20,6 +20,7 @@ export default function HomePage() {
               <h1>Open Shop</h1>
             </Link>
         <div id="content">
+            
         <Outlet />
         </div>
         <div id="footer">

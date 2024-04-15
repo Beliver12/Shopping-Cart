@@ -221,7 +221,7 @@ p{
 
 
 
-@media only screen and (max-width: 1040px) {
+@media only screen and (max-width: 1600px) {
 
   img{
     max-width: 100px;
@@ -238,7 +238,7 @@ p{
   }
 }
 
-@media only screen and (max-width: 590px) {
+@media only screen and (max-width: 890px) {
 
   img{
     max-width: 100px;

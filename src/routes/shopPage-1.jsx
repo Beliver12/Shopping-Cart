@@ -8,7 +8,7 @@ export default function ShopPage() {
     const [image, setImage] = useState([])
     const [itemsInCart, setItemsInCart] = useState(0)
     const [cartInfo, setCartInfo] = useState([])
-    const [numOfItem, seNumOfItem] = useState([])
+    const numOfItem = []
     const srcs = [];
     let prices = [];
           useEffect(() => {
@@ -27,6 +27,8 @@ export default function ShopPage() {
               function addToCart(e) {
                 let currentPrice = 0;
                let value = 1;
+               e.target.parentElement.children[1].value = 1;
+
                prices.push(Number(e.target.value))
             
                 srcs.push(e.target.id)
@@ -61,7 +63,7 @@ export default function ShopPage() {
                       })
                       setCartInfo(newItem)
                       setItemsInCart(itemsInCart)
-                      seNumOfItem(1)
+                     
                       return false;
                     }
                   }
@@ -79,12 +81,12 @@ export default function ShopPage() {
        
         <div id="shop-content">
             {image.map(img =>
-                <div key={img.id}>
+                <div key={img.id} >
                     <p>Price: ${img.price}</p>
                     <img key={img.id} src={img.image}/>
                     <div >
                         <label htmlFor="items">Items:</label>
-                        <input type="number" id="points" value={numOfItem} name="items" onChange={(e) => seNumOfItem(e.target.value)} placeholder='1' max={10}></input>
+                        <input type="number" id="points" name="items" onChange={(e) => numOfItem.push(e.target.value)} placeholder='1' max={10}></input>
                         <button key={img.id} id={img.image} value={img.price} onClick={addToCart}>Add</button>
                     </div>
                 </div>
@@ -92,7 +94,7 @@ export default function ShopPage() {
         </div>
         <div id="sidebar">
              <div id='links'>
-                <Link to={`/`} state={itemsInCart}><h1>Home-Page</h1></Link >
+                <Link to={`/`}  state={itemsInCart}><h1>Home-Page</h1></Link >
              </div>
              <div id='cart-box'>
                 <div id='cart'></div> 
