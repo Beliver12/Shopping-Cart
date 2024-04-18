@@ -98,7 +98,7 @@ grid-column: 2/3;
 #content{
   display: grid;
   grid-template-columns: 60vw 35vw;
-  grid-template-rows: 50px 430px 1000px 300px;
+  grid-template-rows: 50px 430px 1000px 350px;
   column-gap: 10px;
   row-gap: 10px;
   background-image: url(./images/pexels-terje-sollie-298864.jpg);
@@ -180,7 +180,7 @@ h4{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 300px;
+  width: 350px;
 }
 
 #email > p{
@@ -272,6 +272,7 @@ p{
   }
   #shop-content > div > p{
     font-size: 13px;
+    width: 75px;
   }
 }
 
@@ -292,6 +293,7 @@ p{
   }
   #shop-content > div > p{
     font-size: 10px;
+    width: 50px;
   }
 
 }
@@ -312,7 +314,9 @@ p{
   }
   #shop-content > div > p{
     font-size: 8px;
+    width: 50px;
   }
+  
 }
 
 
@@ -321,12 +325,16 @@ p{
   #content {
     display: grid;
     grid-template-columns: 60vw 35vw;
-    grid-template-rows: 50px 430px 1200px 300px;
+    grid-template-rows: 50px 430px 1200px 350px;
     column-gap: 10px;
     row-gap: 10px;
     background-image: url(/src/images/pexels-terje-sollie-298864.jpg);
     background-size: cover;
     background-repeat: no-repeat;
+  }
+  #shop-content > div > p{
+    font-size: 8px;
+    width: 50px;
   }
 }
 
@@ -348,15 +356,19 @@ p{
   }
   #shop-content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(18%, 1fr));
-    grid-template-rows: 300px 300px 300px 300px;
+    grid-template-columns: repeat(auto-fit, minmax(19%, 1fr));
+    grid-template-rows: 350px 350px 350px 350px 350px;
     row-gap: 25px;
     column-gap: 10px;
     justify-self: center;
     width: 60vw;
-    height: 1700px;
+    height: 1750px;
     grid-column: 1 / 2;
     grid-row: 2 / 3;
+  }
+  #shop-content > div > p{
+    font-size: 8px;
+    width: 50px;
   }
 }
 
