@@ -334,7 +334,7 @@ p{
 @media only screen and (max-width: 430px) {
 
   img{
-    max-width: 60px;
+    max-width: 40px;
     height: 100px;
     border-radius: 10px;
   }
@@ -345,6 +345,18 @@ p{
    }
    label{
     font-size: smaller;
+  }
+  #shop-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18%, 1fr));
+    grid-template-rows: 300px 300px 300px 300px;
+    row-gap: 25px;
+    column-gap: 10px;
+    justify-self: center;
+    width: 60vw;
+    height: 1700px;
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
   }
 }
 
