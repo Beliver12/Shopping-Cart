@@ -13,6 +13,8 @@ grid-template-rows:  100px 100px 1fr;
 grid-template-columns: 100%;
 background-color: rgb(52, 51, 51, 0.7);
 border-radius: 10px;
+grid-row: 1/2;
+grid-column: 2/3;
 }
 
 #sidebar > div {
@@ -58,6 +60,29 @@ border-radius: 10px;
   align-self: flex-start;
 }
 
+#cart-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-row: 2/3;
+  justify-self: flex-end;
+  align-self: flex-start;
+}
+
+#cart-box > div {
+  color: white;
+}
+
+#filter-option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(52, 51, 51, 0.5);
+  height: 25px;
+  align-self: center;
+  border-radius: 10px;
+}
+
 #home-icon{
   background-image: url(./icons/icons8-homepage-48.png);
   width: 50px;
@@ -73,7 +98,7 @@ border-radius: 10px;
 #content{
   display: grid;
   grid-template-columns: 60vw 35vw;
-  grid-template-rows: 430px 1000px 300px;
+  grid-template-rows: 50px 430px 1000px 300px;
   column-gap: 10px;
   row-gap: 10px;
   background-image: url(./images/pexels-terje-sollie-298864.jpg);
@@ -94,12 +119,13 @@ border-radius: 10px;
 }
 
 
-#hero-image-1 :hover{
+#hero-image-1 :hover, a :hover{
   border: 1px solid red;
 }
 
 a{
   color: white;
+  text-align: center;
 }
 body{
   background-color: rgb(52, 51, 51);
@@ -187,15 +213,21 @@ img{
  display: flex;
  justify-content: center;
 }
+#shop-content > div > div > label {
+  color: white;
+}
 
 #shop-content > div {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgb(255, 195, 0 , 0.7 );
+  background-color: rgb(52, 51, 51, 0.7);
   border-radius: 20px;
+  text-align: center;
 }
+
+
 
 label{
   color: black;
@@ -214,6 +246,8 @@ input{
   justify-self: center;
   width: 60vw;
   height: 1700px;
+  grid-column: 1/2;
+  grid-row: 2/3;
 }
 p{
   color: white;
@@ -236,30 +270,12 @@ p{
    label{
     font-size: medium;
   }
+  #shop-content > div > p{
+    font-size: 13px;
+  }
 }
 
 @media only screen and (max-width: 890px) {
-
-  img{
-    max-width: 100px;
-    height: 100px;
-    border-radius: 10px;
-  }
-  #shop-content > div > div  {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-   }
-   label{
-    font-size: smaller;
-  }
-  #shop-content > div > p{
-    font-size: small;
-  }
-
-}
-
-@media only screen and (max-width: 510px) {
 
   img{
     max-width: 80px;
@@ -273,6 +289,44 @@ p{
    }
    label{
     font-size: smaller;
+  }
+  #shop-content > div > p{
+    font-size: 10px;
+  }
+
+}
+@media only screen and (max-width: 510px) {
+
+  img{
+    max-width: 60px;
+    height: 100px;
+    border-radius: 10px;
+  }
+  #shop-content > div > div  {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+   }
+   label{
+    font-size: smaller;
+  }
+  #shop-content > div > p{
+    font-size: 8px;
+  }
+}
+
+
+@media only screen and (max-width: 670px) {
+
+  #content {
+    display: grid;
+    grid-template-columns: 60vw 35vw;
+    grid-template-rows: 50px 430px 1200px 300px;
+    column-gap: 10px;
+    row-gap: 10px;
+    background-image: url(/src/images/pexels-terje-sollie-298864.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 }
 
@@ -293,3 +347,4 @@ p{
     font-size: smaller;
   }
 }
+

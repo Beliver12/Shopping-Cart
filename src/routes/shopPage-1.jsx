@@ -2,12 +2,14 @@ import '../index.css'
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react';
 import { Outlet } from "react-router-dom";
-
+import { useOutletContext } from "react-router-dom";
 
 export default function ShopPage() {
     const [image, setImage] = useState([])
+    const [image2, setImage2] = useState([])
     const [itemsInCart, setItemsInCart] = useState(0)
-    const [cartInfo, setCartInfo] = useState([])
+    const [cartInfo, setCartInfo] = useOutletContext()
+    const categories = ['all-items',"men's clothing", 'jewelery', 'electronics', "women's clothing"]
     const numOfItem = []
     const srcs = [];
     let prices = [];
@@ -19,6 +21,7 @@ export default function ShopPage() {
               
                 console.log(response)
                 setImage(response)
+                setImage2(response)
                // console.log(response.results)
               })
               },[]);
@@ -44,8 +47,8 @@ export default function ShopPage() {
                       currentPrice = cartInfo[i].totalPrice + prices[0];
                       const rounded = currentPrice.toFixed(2);
                       currentPrice = Number(rounded);
-                      setItemsInCart(itemsInCart + 1)
-                      setCartInfo([...cartInfo, {id: srcs, val: value, totalPrice: currentPrice}])
+                      
+                      setCartInfo([...cartInfo, {id: srcs, val: value, totalPrice: currentPrice, price: prices[0]}])
                     } else  if(cartInfo[i].id.includes(srcs[0])) {
                       currentPrice = cartInfo[cartInfo.length -1].totalPrice + prices[0];
                       const rounded = currentPrice.toFixed(2);
@@ -54,6 +57,7 @@ export default function ShopPage() {
                          if(index === i) {
                           c.val += value
                          Math.round(c.totalPrice = currentPrice)
+                         Math.round(c.price += prices[0])
                           return c
                          } else {
                           Math.round(c.totalPrice = currentPrice)
@@ -62,7 +66,6 @@ export default function ShopPage() {
                          
                       })
                       setCartInfo(newItem)
-                      setItemsInCart(itemsInCart)
                      
                       return false;
                     }
@@ -70,16 +73,41 @@ export default function ShopPage() {
                 
                 } if(cartInfo.length === 0) {
                   currentPrice = prices[0];
-                  setItemsInCart(itemsInCart+ 1)
-                  setCartInfo([...cartInfo, {id: srcs, val: value, totalPrice: currentPrice}])
+                  setCartInfo([...cartInfo, {id: srcs, val: value, totalPrice: currentPrice, price: prices[0]}])
                 }
-                
+               
+              }
+
+              function changeCategorie(e) {
+                setImage(image2)
+                      const newCategorie = e.target.parentElement.children[0].value
+                      if(newCategorie === 'all-items') {
+                        setImage(image2)
+                        return false
+                      }
+                      if(image.length === 20){
+                      const filtered = image.filter(c => c.category === newCategorie)
+                      filtered
+                      setImage(filtered)
+                      } else if(image.length < 20){
+                        const filtered = image2.filter(c => c.category === newCategorie)
+                        filtered
+                        setImage(filtered)
+                      }
               }
             
     return (
         <>
-       
+        <div id='filter-option'>
+          <select defaultValue='' name="" id="">
+          {categories.map(c =>
+           <option defaultValue='' key={c} value={c}>{c}</option>
+            )}
+                </select>
+                <button onClick={changeCategorie}>filter</button>
+        </div>
         <div id="shop-content">
+          
             {image.map(img =>
                 <div key={img.id} >
                     <p>Price: ${img.price}</p>
@@ -88,19 +116,21 @@ export default function ShopPage() {
                         <label htmlFor="items">Items:</label>
                         <input type="number" id="points" name="items" onChange={(e) => numOfItem.push(e.target.value)} placeholder='1' max={10}></input>
                         <button key={img.id} id={img.image} value={img.price} onClick={addToCart}>Add</button>
+                        
                     </div>
+                    <p>{img.title}</p>
+                   
                 </div>
+                
                 )}
         </div>
         <div id="sidebar">
-             <div id='links'>
-                <Link to={`/`}  state={itemsInCart}><h1>Home-Page</h1></Link >
-             </div>
+             
              <div id='cart-box'>
                 <div id='cart'></div> 
                 
                 
-                <Link to={`/shop-page-1/cart`}><p>{itemsInCart}</p></Link>
+                <Link to={`/shop-page-1/cart`}><p>{cartInfo.length }</p></Link>
              </div>
              
                  <div id='cart-items'>

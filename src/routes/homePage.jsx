@@ -1,27 +1,36 @@
 
 import { Outlet } from "react-router-dom";
-
+import { useEffect, useState } from 'react';
 import '../index.css'
 import { Link } from 'react-router-dom'
 
 export default function HomePage() {
-
+    const [cartInfo, setCartInfo] = useState([])
     return (
         <>
         <div id="header">
         <div id="home">
             <div id="home-icon"></div>
-        <h1>Home Page</h1>
+        <h1>Shopping Cart Project</h1>
              </div>
           
              
         </div>
         <Link to={`/shop-page-1`} id="hero-image-1">
               <h1>Open Shop</h1>
+              
             </Link>
+            <Link to={`/`} ><h1>Home-Page</h1></Link >   
+            <div id='cart-box'>
+                <div >CHeck items in cart:&nbsp;</div> 
+                
+                
+                <Link to={`/shop-page-1/cart`}><p>{cartInfo.length}</p></Link>
+             </div>
+           
         <div id="content">
             
-        <Outlet />
+        <Outlet context={[cartInfo, setCartInfo]}/>
         </div>
         <div id="footer">
         <h1>Contact-Us:</h1>
