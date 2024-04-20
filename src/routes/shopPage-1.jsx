@@ -106,7 +106,8 @@ export default function ShopPage() {
                 </select>
                 <button onClick={changeCategorie}>filter</button>
         </div>
-        <div id="shop-content">
+       
+        <div id='shop-content'>
           
             {image.map(img =>
                 <div key={img.id} >
@@ -114,7 +115,7 @@ export default function ShopPage() {
                     <img key={img.id} src={img.image}/>
                     <div >
                         <label htmlFor="items">Items:</label>
-                        <input type="number" id="points" name="items" onChange={(e) => numOfItem.push(e.target.value)} placeholder='1' max={10}></input>
+                        <input type="number" id="points" name="items" onChange={(e) => numOfItem.push(e.target.value)} placeholder='1' max={10} min={1}></input>
                         <button key={img.id} id={img.image} value={img.price} onClick={addToCart}>Add</button>
                         
                     </div>
@@ -123,20 +124,11 @@ export default function ShopPage() {
                 </div>
                 
                 )}
-        </div>
-        <div id="sidebar">
+      
+       
+          
              
-             <div id='cart-box'>
-                <div id='cart'></div> 
-                
-                
-                <Link to={`/shop-page-1/cart`}><p>{cartInfo.length }</p></Link>
-             </div>
-             
-                 <div id='cart-items'>
-                   
-                   <Outlet context={[cartInfo, setCartInfo]}/>
-                 </div>
+           
                 
         </div>
         </>

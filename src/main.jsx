@@ -15,15 +15,14 @@ const router = createBrowserRouter([
       {
         path: "/shop-page-1",
      element: <ShopPage/>, 
-     children: [
+      },
       {
-        path: "/shop-page-1/cart",
+        path: "/cart",
      element: <CartContext/>, 
      
       },
-    
-    ],
-      },
+   
+     
     
     ],
   },

@@ -13,24 +13,26 @@ export default function HomePage() {
             <div id="home-icon"></div>
         <h1>Shopping Cart Project</h1>
              </div>
-          
-             
-        </div>
-        <Link to={`/shop-page-1`} id="hero-image-1">
+             <Link to={`/shop-page-1`} >
               <h1>Open Shop</h1>
               
             </Link>
             <Link to={`/`} ><h1>Home-Page</h1></Link >   
+          
+               
             <div id='cart-box'>
-                <div >CHeck items in cart:&nbsp;</div> 
-                
-                
-                <Link to={`/shop-page-1/cart`}><p>{cartInfo.length}</p></Link>
-             </div>
+                <div id='cart'></div>
+                <Link to={`/cart`}><p>{cartInfo.length }</p></Link>
+                 </div>
+             
+        </div>
+       
            
         <div id="content">
             
-        <Outlet context={[cartInfo, setCartInfo]}/>
+        
+            <Outlet context={[cartInfo, setCartInfo]}/>
+        
         </div>
         <div id="footer">
         <h1>Contact-Us:</h1>
