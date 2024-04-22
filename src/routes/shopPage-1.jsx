@@ -7,7 +7,7 @@ import { useOutletContext } from "react-router-dom";
 export default function ShopPage() {
     const [image, setImage] = useState([])
     const [image2, setImage2] = useState([])
-    const [itemsInCart, setItemsInCart] = useState(0)
+    const [items, setItems] = useState([])
     const [cartInfo, setCartInfo] = useOutletContext()
     const categories = ['all-items',"men's clothing", 'jewelery', 'electronics', "women's clothing"]
     const numOfItem = []
@@ -95,6 +95,12 @@ export default function ShopPage() {
                         setImage(filtered)
                       }
               }
+
+              function getImageClicked(e) {
+                const clicked = e.target.id;
+                const image = e.target.src;
+                setItems([...items, {description: clicked, src: image}])
+              }
             
     return (
         <>
@@ -106,13 +112,12 @@ export default function ShopPage() {
                 </select>
                 <button onClick={changeCategorie}>filter</button>
         </div>
-       
         <div id='shop-content'>
           
             {image.map(img =>
                 <div key={img.id} >
                     <p>Price: ${img.price}</p>
-                    <img key={img.id} src={img.image}/>
+                    <Link to={`/description`}><img onClick={getImageClicked} key={img.id} id={img.description} src={img.image}/></Link>
                     <div >
                         <label htmlFor="items">Items:</label>
                         <input type="number" id="points" name="items" onChange={(e) => numOfItem.push(e.target.value)} placeholder='1' max={10} min={1}></input>
