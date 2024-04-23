@@ -33,12 +33,12 @@ export default function HomePage() {
             </Link>
             <Link to={`/`} ><h1>Home-Page</h1></Link >   
             <Link to={`/about`} ><h1>About-Us</h1></Link >  
-               
+            <Link to={`/cart`}>
             <div id='cart-box'>
                 <div id='cart'></div>
-                <Link to={`/cart`}><p>{cartInfo.length }</p></Link>
+                <p>{cartInfo.length }</p>
                  </div>
-             
+                 </Link>
         </div>
         <div id="content"><Link to={`/shop-page-1`}><button><span>Shop-Now</span></button></Link></div>
     
