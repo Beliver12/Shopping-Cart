@@ -481,7 +481,14 @@ p{
 
 @media only screen and (max-width: 650px) {
 
-  
+  #total > a > button {
+    width: 200px;
+    color: white;
+    background-color: blue;
+    border: 1px solid black;
+    border-radius: 10px;
+    
+  }
  
   #shop-content > div > p{
     font-size: 14px;
