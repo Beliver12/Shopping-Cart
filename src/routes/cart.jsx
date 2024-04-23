@@ -1,8 +1,10 @@
 import { useOutletContext } from "react-router-dom";
 import { useEffect, useState } from 'react';
+
+import { Link } from 'react-router-dom'
 import '../index.css'
 export default function CartContext() {
-    const [cartInfo, setCartInfo]  = useOutletContext()
+    const {cartInfo, setCartInfo}  = useOutletContext()
     
     function removeItem(e) {
         const index = e.target.id;   
@@ -94,6 +96,10 @@ export default function CartContext() {
 
     return(
     <>
+    <div id="total"> 
+            <p>Total: {cartInfo.length < 1 ? '0$' : cartInfo[cartInfo.length - 1].totalPrice}$</p>
+            <Link to={`/`}><button>Check out</button></Link>
+        </div>  
       <div id='shop-content'>
     {cartInfo.length < 1 ? '' :  Object.keys(cartInfo).map((item, i) => (
         <div key={i}> 
@@ -111,12 +117,10 @@ export default function CartContext() {
     )) 
 }  
 
-        <div > 
-            <p>Total: {cartInfo.length < 1 ? '' : cartInfo[cartInfo.length - 1].totalPrice}</p>
-        </div>     
+          
  
         </div>
-   
+        
     </>
     )
 }

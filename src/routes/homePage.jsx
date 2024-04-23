@@ -4,18 +4,27 @@ import { useEffect, useState } from 'react';
 import '../index.css'
 import { Link } from 'react-router-dom'
 import { useRef } from 'react';
-
+import reactLogo from '../assets/react.svg'
+import viteLogo from '/vite.svg'
 
 
 export default function HomePage() {
     const [cartInfo, setCartInfo] = useState([])
-
+    const [items, setItems] = useState([])
     return (
         <>
         
         <div id="header">
         <div id="home">
-            <div id="home-icon"></div>
+          
+            <div>
+        <a  target="_blank" className="logo"  >
+          
+        </a>
+        <a href="https://react.dev" target="_blank">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
+      </div>
         <h1>Shopping Cart Project</h1>
              </div>
              <Link to={`/shop-page-1`} >
@@ -31,10 +40,10 @@ export default function HomePage() {
                  </div>
              
         </div>
-        <div id="content"></div>
+        <div id="content"><Link to={`/shop-page-1`}><button><span>Shop-Now</span></button></Link></div>
     
         
-            <Outlet context={[cartInfo, setCartInfo]}/>
+        <Outlet context={{cartInfo, setCartInfo, items, setItems}}/>
         
       
        

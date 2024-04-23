@@ -7,8 +7,8 @@ import { useOutletContext } from "react-router-dom";
 export default function ShopPage() {
     const [image, setImage] = useState([])
     const [image2, setImage2] = useState([])
-    const [items, setItems] = useState([])
-    const [cartInfo, setCartInfo] = useOutletContext()
+    const {items, setItems}  = useOutletContext()
+    const {cartInfo, setCartInfo} = useOutletContext()
     const categories = ['all-items',"men's clothing", 'jewelery', 'electronics', "women's clothing"]
     const numOfItem = []
     const srcs = [];
@@ -97,6 +97,9 @@ export default function ShopPage() {
               }
 
               function getImageClicked(e) {
+                if(items.length > 0) {
+                  items.length = 0;
+                }
                 const clicked = e.target.id;
                 const image = e.target.src;
                 setItems([...items, {description: clicked, src: image}])
@@ -112,6 +115,7 @@ export default function ShopPage() {
                 </select>
                 <button onClick={changeCategorie}>filter</button>
         </div>
+        <Outlet context={{cartInfo, setCartInfo, items, setItems}}/>
         <div id='shop-content'>
           
             {image.map(img =>

@@ -98,12 +98,16 @@ body{
   align-items: center;
 }
 
-#content{
+#content {
   background-image: url(./images/pexels-garrett-morrow-682933.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  width: 100%;
+  max-width: 100%;
   height: 400px;
+  justify-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 
@@ -120,9 +124,6 @@ body{
 }
 
 
-#hero-image-1 :hover, a :hover{
-  border: 1px solid red;
-}
 
 a{
   color: white;
@@ -136,11 +137,19 @@ h1{
 }
 
 #footer{
-  height: 100px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  
+  text-align: center;
+  color: white;
+}
+
+#footer > div {
+ max-width: 800px;
+  font-size: large;
+  padding: 10px 10px 10px 10px;
+  background-color: rgb(20, 18, 18);
 }
 
 #root{
@@ -266,7 +275,7 @@ input{
 #shop-content{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(18%, 1fr));
-  grid-template-rows: repeat(auto-fit, minmax(15%, 450px));
+  grid-template-rows: repeat(auto-fit, minmax(15%, 350px));
   row-gap: 25px;
   column-gap: 10px;
   justify-self: center;
@@ -279,15 +288,99 @@ p{
   color: white;
 }
 
+#total{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+ height: 40px;
+}
 
+#total > p{
+  margin: 0;
+}
+#total > a > button {
+  width: 400px;
+  color: white;
+  background-color: blue;
+  border: 1px solid black;
+  border-radius: 10px;
+  
+}
+#total > a > button:hover{
+  background-color: black;
+}
+
+#content > a > button {
+  border-radius: 8px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+#content > a > button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+#content > a  > button span::after{
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+#content > a > button:hover span {
+  padding-right: 25px;
+}
+
+#content > a > button:hover span::after {
+  opacity: 1;
+  right: 0;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
 
 @media only screen and (max-width: 1600px) {
-
-  img{
-    max-width: 100px;
-    height: 200px;
-    border-radius: 10px;
-  }
+ 
+  
+ 
   #shop-content > div > div  {
     display: flex;
     justify-content: center;
@@ -306,15 +399,7 @@ p{
     width: 100vw;
     height: 100%;
   }
-  #content{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    background-color: rgba(19, 17, 17);
-    width: 100%;
-    height: 2000px;
-  }
+
   
 }
 
@@ -323,23 +408,16 @@ p{
   #shop-content{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(23%, 1fr));
-    grid-template-rows: repeat(auto-fit, minmax(23%, 450px));
+    grid-template-rows: repeat(auto-fit, minmax(23%, 550px));
     row-gap: 25px;
     column-gap: 10px;
     justify-self: center;
     width: 100vw;
     height: 100%;
   }
-  #content{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    background-color: rgba(19, 17, 17);
-    width: 100%;
-    height: 2200px;
+  #header{
+    font-size: smaller;
   }
-
 }
 
 
@@ -351,21 +429,15 @@ p{
   #shop-content{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(24%, 1fr));
-    grid-template-rows: repeat(auto-fit, minmax(24%, 450px));
+    grid-template-rows: repeat(auto-fit, minmax(12%, 350px));
     row-gap: 25px;
     column-gap: 10px;
     justify-self: center;
     width: 100vw;
     height: 100%;
   }
-  #content{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    background-color: rgba(19, 17, 17);
-    width: 100%;
-    height: 2200px;
+  #header{
+    font-size: x-small;
   }
 
 }
@@ -385,24 +457,16 @@ p{
   #shop-content{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
-    grid-template-rows: repeat(auto-fit, minmax(25%, 450px));
+    grid-template-rows: repeat(auto-fit, minmax(10%, 350px));
     row-gap: 25px;
     column-gap: 10px;
     justify-self: center;
     width: 100vw;
     height: 100%;
   }
-  #content{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    background-color: rgba(19, 17, 17);
-    width: 100%;
-    height: 2950px;
-  }
+ 
 #header{
-  font-size: smaller;
+  font-size: xx-small;
 }
   
 }
@@ -421,24 +485,16 @@ p{
   #shop-content{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
-    grid-template-rows: repeat(auto-fit, minmax(30%, 450px));
+    grid-template-rows: repeat(auto-fit, minmax(10%, 450px));
     row-gap: 25px;
     column-gap: 10px;
     justify-self: center;
     width: 100vw;
     height: 100%;
   }
-  #content{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    background-color: rgba(19, 17, 17);
-    width: 100%;
-    height: 4350px;
-  }
+ 
   #header{
-    font-size: x-small;
+    font-size: 8px;
   }
 }
 
@@ -455,24 +511,16 @@ p{
   #shop-content{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
-    grid-template-rows: repeat(auto-fit, minmax(30%, 450px));
+    grid-template-rows: repeat(auto-fit, minmax(6%, 450px));
     row-gap: 25px;
     column-gap: 10px;
     justify-self: center;
     width: 100vw;
     height: 100%;
   }
-  #content{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    background-color: rgba(19, 17, 17);
-    width: 100%;
-    height: 8000px;
-  }
+  
   #header{
-    font-size: 8px;
+    font-size: 6px;
   }
 }
 
