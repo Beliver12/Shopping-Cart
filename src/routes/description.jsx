@@ -10,7 +10,7 @@ export default function Description() {
 
     return(
     <>
-  <div id="footer">
+  <div id="footer2">
     <img src={items[0].src} alt="" />
   <div>
     {items[0].description}
