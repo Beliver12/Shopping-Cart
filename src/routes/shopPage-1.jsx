@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react';
 import { Outlet } from "react-router-dom";
 import { useOutletContext } from "react-router-dom";
+import { BrowserRouter } from 'react-router-dom'
 
 export default function ShopPage() {
     const [image, setImage] = useState([])
@@ -107,6 +108,7 @@ export default function ShopPage() {
             
     return (
         <>
+          <BrowserRouter>
         <div id='filter-option'>
           <select defaultValue='' name="" id="">
           {categories.map(c =>
@@ -140,6 +142,7 @@ export default function ShopPage() {
            
                 
         </div>
+        </BrowserRouter>
         </>
     )
 }

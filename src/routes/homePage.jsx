@@ -6,14 +6,14 @@ import { Link } from 'react-router-dom'
 import { useRef } from 'react';
 import reactLogo from '../assets/react.svg'
 import viteLogo from '/vite.svg'
-
+import { BrowserRouter } from 'react-router-dom'
 
 export default function HomePage() {
     const [cartInfo, setCartInfo] = useState([])
     const [items, setItems] = useState([])
     return (
         <>
-        
+        <BrowserRouter>
         <div id="header">
         <div id="home">
           
@@ -45,7 +45,7 @@ export default function HomePage() {
         
         <Outlet context={{cartInfo, setCartInfo, items, setItems}}/>
         
-      
+        </BrowserRouter>
        
         </>
     )

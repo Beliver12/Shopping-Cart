@@ -1,0 +1,161 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Homepage component > renders magnificent monkeys 1`] = `
+<div>
+  <div
+    id="header"
+  >
+    <div
+      id="home"
+    >
+      <div>
+        <a
+          class="logo"
+          target="_blank"
+        />
+        <a
+          href="https://react.dev"
+          target="_blank"
+        >
+          <img
+            alt="React logo"
+            class="logo react"
+            src="/src/assets/react.svg"
+          />
+        </a>
+      </div>
+      <h1>
+        Shopping Cart Project
+      </h1>
+    </div>
+    <a
+      href="/shop-page-1"
+    >
+      <h1>
+        Open Shop
+      </h1>
+    </a>
+    <a
+      href="/"
+    >
+      <h1>
+        Home-Page
+      </h1>
+    </a>
+    <a
+      href="/about"
+    >
+      <h1>
+        About-Us
+      </h1>
+    </a>
+    <a
+      href="/cart"
+    >
+      <div
+        id="cart-box"
+      >
+        <div
+          id="cart"
+        />
+        <p>
+          0
+        </p>
+      </div>
+    </a>
+  </div>
+  <div
+    id="content"
+  >
+    <a
+      href="/shop-page-1"
+    >
+      <button>
+        <span>
+          Shop-Now
+        </span>
+      </button>
+    </a>
+  </div>
+</div>
+`;
+
+exports[`ShopPage component > renders magnificent monkeys 1`] = `
+<div>
+  <div
+    id="header"
+  >
+    <div
+      id="home"
+    >
+      <div>
+        <a
+          class="logo"
+          target="_blank"
+        />
+        <a
+          href="https://react.dev"
+          target="_blank"
+        >
+          <img
+            alt="React logo"
+            class="logo react"
+            src="/src/assets/react.svg"
+          />
+        </a>
+      </div>
+      <h1>
+        Shopping Cart Project
+      </h1>
+    </div>
+    <a
+      href="/shop-page-1"
+    >
+      <h1>
+        Open Shop
+      </h1>
+    </a>
+    <a
+      href="/"
+    >
+      <h1>
+        Home-Page
+      </h1>
+    </a>
+    <a
+      href="/about"
+    >
+      <h1>
+        About-Us
+      </h1>
+    </a>
+    <a
+      href="/cart"
+    >
+      <div
+        id="cart-box"
+      >
+        <div
+          id="cart"
+        />
+        <p>
+          0
+        </p>
+      </div>
+    </a>
+  </div>
+  <div
+    id="content"
+  >
+    <a
+      href="/shop-page-1"
+    >
+      <button>
+        <span>
+          Shop-Now
+        </span>
+      </button>
+    </a>
+  </div>
+</div>
+`;
