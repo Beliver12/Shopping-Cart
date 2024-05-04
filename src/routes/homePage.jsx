@@ -13,7 +13,7 @@ export default function HomePage() {
     const [items, setItems] = useState([])
     return (
         <>
-        <BrowserRouter>
+       
         <div id="header">
         <div id="home">
           
@@ -45,7 +45,7 @@ export default function HomePage() {
         
         <Outlet context={{cartInfo, setCartInfo, items, setItems}}/>
         
-        </BrowserRouter>
+       
        
         </>
     )

@@ -14,6 +14,7 @@ export default function ShopPage() {
     const numOfItem = []
     const srcs = [];
     let prices = [];
+    console.log(items)
           useEffect(() => {
                 fetch('https://fakestoreapi.com/products')
               .then(function (response) {
@@ -108,7 +109,6 @@ export default function ShopPage() {
             
     return (
         <>
-          <BrowserRouter>
         <div id='filter-option'>
           <select defaultValue='' name="" id="">
           {categories.map(c =>
@@ -142,7 +142,7 @@ export default function ShopPage() {
            
                 
         </div>
-        </BrowserRouter>
+        
         </>
     )
 }
